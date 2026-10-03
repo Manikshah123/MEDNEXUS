@@ -1,0 +1,165 @@
+/* Bedside Monitor Specialized High-Contrast Clinical Display */
+.bedside-monitor-page {
+  background-color: #0b1120;
+  color: #f1f5f9;
+  min-height: 100vh;
+  padding: 24px;
+  font-family: var(--font-main);
+}
+
+.bedside-header {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: var(--radius-xl);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.bedside-patient-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.bedside-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.telemetry-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.telemetry-card.ecg {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.08), #111827);
+}
+
+.telemetry-card.bp {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), #111827);
+}
+
+.telemetry-card.spo2 {
+  border-color: rgba(52, 211, 153, 0.4);
+  background: radial-gradient(circle at top right, rgba(52, 211, 153, 0.08), #111827);
+}
+
+.telemetry-card.rr {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.08), #111827);
+}
+
+.telemetry-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.telemetry-card.ecg .telemetry-label { color: #f87171; }
+.telemetry-card.bp .telemetry-label { color: #38bdf8; }
+.telemetry-card.spo2 .telemetry-label { color: #34d399; }
+.telemetry-card.rr .telemetry-label { color: #c084fc; }
+
+.telemetry-val {
+  font-size: 3.2rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+  margin: 12px 0 6px;
+  color: #ffffff;
+}
+
+.ecg-waveform-canvas {
+  width: 100%;
+  height: 60px;
+  margin-top: 8px;
+}
+
+.bedside-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.bedside-panel {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.bedside-panel-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bedside-order-item {
+  background-color: #1e293b;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid var(--accent-teal);
+}
+
+.bedside-order-item.urgent {
+  border-left-color: var(--amber-warning);
+}
+
+.bedside-order-item.due-now {
+  border-left-color: var(--rose-danger);
+  animation: pulseBedsideAlert 2s infinite ease-in-out;
+}
+
+@keyframes pulseBedsideAlert {
+  0%, 100% { background-color: #1e293b; }
+  50% { background-color: rgba(225, 29, 72, 0.2); }
+}
+
+.nurse-call-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  transition: transform 0.1s ease;
+}
+
+.nurse-call-btn:active {
+  transform: scale(0.98);
+}
